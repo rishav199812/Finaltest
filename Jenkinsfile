@@ -1,5 +1,14 @@
 pipeline {
   agent any
+  parameters {
+        choice(name: 'BRANCH', choices: ['Prod', 'Dev'], description: 'Choose branch')
+    }
+    stages {
+        stage('Printing Parameters') {
+            steps {
+                echo "Hello ${params.NAME}"
+            }
+        }
   environment {
         CURRENT_BRANCH_NAME = "${GIT_BRANCH.split('/').size() > 1 ? GIT_BRANCH.split('/')[1..-1].join('/') : GIT_BRANCH}"
     }
