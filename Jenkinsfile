@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage("create lambda zip based on tag") {
             steps {
+              echo "Environment to be deployed : ${ENV}" 
              echo "${env.GIT_BRANCH}"
               sh 'printenv'
               echo "${CURRENT_BRANCH_NAME}"
