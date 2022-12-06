@@ -22,10 +22,7 @@ pipeline {
                  GIR_SIZE = sh(returnStdout: true, script: "git branch -a --contains tags/${DIR_SIZE}")
                 echo "${GIR_SIZE}"
               } 
-              script {
-                JIR_SIZE = sh(returnStdout: true, script: "git symbolic-ref --short HEAD")
-                echo "${JIR_SIZE}"
-              } 
+         
               
                
             }
