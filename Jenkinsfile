@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Printing Parameters') {
             steps {
-                echo "Hello ${params.NAME}"
+                echo "Hello ${params.BRANCH}"
             }
         }
 
