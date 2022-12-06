@@ -7,7 +7,6 @@ pipeline {
         stage("create lambda zip based on tag") {
             steps {
              echo "${env.GIT_BRANCH}"
-              echo "in main branch"
               sh 'printenv'
               echo "${CURRENT_BRANCH_NAME}"
               
@@ -31,14 +30,7 @@ pipeline {
                
             }
         }
-        stage('Set branch name') {
-            steps {
-                script{
-                    currentBuild.displayName = "#"+currentBuild.number+": "+CURRENT_BRANCH_NAME
-                }
-              echo "${currentBuild.displayName}"
-            }
-        }
+   
                 
    
             }
