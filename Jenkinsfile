@@ -1,12 +1,21 @@
+def gettarget(branch) {
+        if (branch == "origin/master") {
+                return 'prod'
+        } else {
+                return 'dev'
+        }
+
+}
 pipeline {
   agent any
-  parameters {
-        choice(name: 'BRANCH', choices: ['Prod', 'Dev'], description: 'Choose branch')
-    }
+ environment {
+  		region = 'eu-west-1'
+		ENV = gettarget(env.GIT_BRANCH)
+	} 
     stages {
         stage('Printing Parameters') {
             steps {
-                echo "Hello ${params.BRANCH}"
+                echo "${env.ENV}"
             }
         }
 
