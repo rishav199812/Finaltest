@@ -1,5 +1,5 @@
 def gettarget(branch) {
-        if (branch == "origin/master") {
+        if (branch == "origin/main") {
                 return 'prod'
         } else {
                 return 'dev'
